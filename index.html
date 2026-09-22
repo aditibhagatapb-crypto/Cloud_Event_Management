@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect | College Event Management</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7fb;
+            color: #111827;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #6c5ce7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 600;
+        }
+
+        .login-btn {
+            background: #6c5ce7;
+            color: white !important;
+            padding: 10px 18px;
+            border-radius: 8px;
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 90px 7%;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f3ff, #ffffff);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #ede9fe;
+            color: #5b4bdb;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #6c5ce7;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #6b7280;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #6c5ce7;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 9px;
+            font-weight: 700;
+            margin: 5px;
+        }
+
+        .secondary-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: white;
+            color: #5b4bdb;
+            padding: 13px 22px;
+            border-radius: 9px;
+            border: 1px solid #ddd6fe;
+            font-weight: 700;
+            margin: 5px;
+        }
+
+        /* EVENTS */
+
+        .section {
+            padding: 70px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-icon {
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .event-date {
+            color: #6c5ce7;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .event-card h3 {
+            margin: 12px 0;
+            font-size: 21px;
+        }
+
+        .event-card p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* FEATURES */
+
+        .features {
+            background: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: #f8f7ff;
+            border-radius: 18px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            color: #d1d5db;
+            margin-top: 10px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .events-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Campus<span>Connect</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#events">
+            Events
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#events" class="login-btn">
+            Explore
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <span class="hero-tag">
+        🎓 College Events Made Simple
+    </span>
+
+    <h1>
+        Discover.
+        <span>Register.</span>
+        Experience.
+    </h1>
+
+    <p>
+        Discover exciting college events, register in seconds,
+        and keep track of your registrations in one simple
+        and organized platform.
+    </p>
+
+    <div class="buttons">
+
+        <a href="#events" class="primary-btn">
+            Explore Events →
+        </a>
+
+        <a href="#features" class="secondary-btn">
+            Learn More
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- EVENTS -->
+
+<section class="section" id="events">
+
+    <div class="section-heading">
+
+        <span class="hero-tag">
+            🎉 Upcoming Events
+        </span>
+
+        <h2>
+            Explore What's Happening on Campus
+        </h2>
+
+        <p>
+            Discover exciting events and activities organized
+            for the college community.
+        </p>
+
+    </div>
+
+
+    <div class="events-grid">
+
+
+        <!-- GANPATI -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                🪔
+            </div>
+
+            <span class="event-date">
+                📅 14 September 2026
+            </span>
+
+            <h3>
+                Ganpati Festival 2026
+            </h3>
+
+            <p>
+                Celebrate the spirit of Ganesh Chaturthi
+                with prayers, cultural activities and
+                joyful celebrations with the college community.
+            </p>
+
+            <p>
+                🕐 10:30 AM<br>
+                📍 College Auditorium<br>
+                👥 Capacity: 150
+            </p>
+
+        </div>
+
+
+        <!-- COLLEGE FEST -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                🎉
+            </div>
+
+            <span class="event-date">
+                📅 20 September 2026
+            </span>
+
+            <h3>
+                Annual College Fest 2026
+            </h3>
+
+            <p>
+                A vibrant college-wide celebration featuring
+                cultural performances, creative competitions,
+                music, entertainment and engaging activities.
+            </p>
+
+            <p>
+                🕐 10:00 AM<br>
+                📍 College Auditorium<br>
+                👥 Capacity: 100
+            </p>
+
+        </div>
+
+
+        <!-- NAVRATRI -->
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                🌺
+            </div>
+
+            <span class="event-date">
+                📅 14 October 2026
+            </span>
+
+            <h3>
+                Navratri Celebration 2026
+            </h3>
+
+            <p>
+                Celebrate Navratri with traditional music,
+                vibrant decorations, cultural performances
+                and an exciting evening of festivities.
+            </p>
+
+            <p>
+                🕐 06:00 PM<br>
+                📍 College Main Ground<br>
+                👥 Capacity: 250
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="section features" id="features">
+
+    <div class="section-heading">
+
+        <span class="hero-tag">
+            ✨ Everything in One Place
+        </span>
+
+        <h2>
+            Simple, Organized & Convenient
+        </h2>
+
+        <p>
+            Everything students need to discover and manage
+            college events.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📅
+            </div>
+
+            <h3>
+                Discover Events
+            </h3>
+
+            <p>
+                Browse upcoming college events and find
+                activities that interest you.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📝
+            </div>
+
+            <h3>
+                Easy Registration
+            </h3>
+
+            <p>
+                Register for events quickly while avoiding
+                duplicate registrations.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔔
+            </div>
+
+            <h3>
+                Stay Updated
+            </h3>
+
+            <p>
+                Keep track of important event information
+                and registration updates.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h3>
+        CampusConnect
+    </h3>
+
+    <p>
+        Cloud-Based College Event Registration and
+        Management System
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 CampusConnect. College Project.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
